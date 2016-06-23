@@ -1,4 +1,4 @@
-require 'rails_helper' 
+require 'rails_helper'
 
 describe 'Galactical Relations Koans' do
 
@@ -59,7 +59,7 @@ describe 'Galactical Relations Koans' do
     it 'An asteroid circles many planets', stage: :gamma do
       expect(asteroid).to have_and_belong_to_many(:planets)
 
-      planets = [ 
+      planets = [
         earth = Planet.create,
         mars  = Planet.create
       ]
@@ -96,7 +96,7 @@ describe 'Galactical Relations Koans' do
       Crewing.create(spaceship: spaceship, astronaut: Astronaut.create)
       Crewing.create(spaceship: spaceship, astronaut: captain , captain: true)
 
-      expect(spaceship.astronauts.size).to eq 3 
+      expect(spaceship.astronauts.size).to eq 3
       expect(spaceship.captain).to eq captain
     end
 
@@ -120,7 +120,7 @@ describe 'Galactical Relations Koans' do
     end
 
     it 'A moon has a single sun, via its planet', stage: :epsilon do
-      expect(moon).to have_one :sun 
+      expect(moon).to have_one :sun
 
       planet = sun.planets.create
       moon   = planet.moons.create
